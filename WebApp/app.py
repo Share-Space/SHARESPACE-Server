@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from werkzeug import secure_filename
 # 파일 업로드에 사용
 
-from image_classification import *
+from Image_classification import *
 from database import * # 데이터베이스 생성 및 관리
 
 engine = create_engine('sqlite:///LETSBE.db', echo=True) # 레쓰비 만세
@@ -202,7 +202,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(app.config['UPLOAD_FOLDER']+'/'+file.filename)
-            return '<h1>success</h1>' # 파일 업로드 성공
+            return home() # 파일 업로드 성공
     return render_template('upload/upload.html') # 파일 업로드 폼
 
 @app.route('/view')
@@ -297,7 +297,10 @@ img로 이미지와 이미지 이름을 보여주고 클릭시 view page를 보�
 @app.route('/newsfeed')
 def newsfeed():
     shuffled = getShuffledImageList()
-    shuffled = shuffled[:5]
+    length = len(shuffled)
+    if length < 5:
+        length = len(shuffled)
+    shuffled = shuffled[:length]
     # 경로, 확장자 없이 순수 filename만 있는 배열 title
     title = []
     for image in shuffled:
@@ -317,7 +320,7 @@ def newsfeed():
     for image in shuffled:
         temp = image.replace('static/uploads\\', '')
         view.append(temp)
-    return render_template('newsfeed.html', title=title, filename=filename, view=view)
+    return render_template('newsfeed.html', title=title, filename=filename, view=view, length=length)
     # 뉴스피드 템플릿 반환
 
 '''
@@ -352,7 +355,8 @@ def search():
         filename.append(temp)
     view = title
     # 경로 없고 그냥 파일네임만(+확장자는 선택 => 즉 title과 같음)
-    return render_template('view/search-result.html', title=title, filename=filename, view=view, length=len(title))
+    length=len(title)
+    return render_template('view/search-result.html', title=title, filename=filename, view=view, length=length)
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -361,5 +365,5 @@ def page_not_found(e):
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
-    app.run(debug = True, host='0.0.0.0', port=5000)
+    app.run(debug = True, host='0.0.0.0', port=7000)
     # 앱 시작
