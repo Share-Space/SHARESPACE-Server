@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+<style>
+body{
+  color: #000;
+  background-image: url("{{ url_for('static',filename='images/background1.png') }}");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+</style>
 {% block body %}
 <form action="/view-result" method="GET">
 	<div class="login">
@@ -6,7 +14,7 @@
 			<div class="app-title">
 				<h1>Input Filename to view</h1>
 			</div>
-			
+
 			<div class="login-form">
 				<div class="control-group">
 				<input type="text" class="login-field" value="" placeholder="filename" name="filename">
