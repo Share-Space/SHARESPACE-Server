@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+{% block body %}
+<div style="text-align: center;">
+<br><h1>Write Article</h1>
+<form action="/write-result" method="POST">
+    <textarea name="text" cols="50" rows="5">
+      {{ basic_text }}
+    </textarea>
+    <input type="submit">
+</form>
+{% endblock %}

@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
 {% block body %}
 <div class="jumbotron">
+
   <h4 class="display-5">View Image</h4>
   <iframe
       frameborder="0"
@@ -9,12 +10,34 @@
       allowfullscreen
       src="{{url_for('static', filename=filename)  | replace('%3D', '=') | replace('%26', '&') | replace('%3F', '?')}}">
   </iframe><p><br></p>
+
+  <h4 class="display-5">Article</h4>
+  <p>{{ article }}<br><br></p>
+
   <h4 class="display-5">Tags</h4>
   <h5>
     {% for tag in tags %}
       <span class="badge badge-primary">{{ tag }}</span>
     {% endfor %}
+  </h5><p><br></p>
+
+  <h4 class="display-5">Writer</h4>
+  {% if loglist=="none"%}
+    <p>아무도 글을 편집하지 않았습니다.</p>
+  {% else %}
+      <p>
+      {% for log in loglist %}
+          {{ log }}
+      {% endfor %}
+      </p>
+  {% endif %}
+  <h5>
+      <button type="button" class="btn btn-secondary">
+        <a href="/" style="color: white;">home</a>
+      </button>
+      <button type="button" class="btn btn-info">
+        <a href="/write" style="color: white;">Edit</a>
+      </button>
   </h5>
-  <h5><a href="/">home</a></h5>
 </dir>
 {% endblock %}

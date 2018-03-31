@@ -1,7 +1,10 @@
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
 {% block body %}
-<form action = "/upload" method = "POST" enctype = "multipart/form-data">
-  <input type = "file" name = "file" />
-  <input type = "submit"/>
+<div style="text-align: center;">
+<br><h1>Upload new File</h1>
+<form method=post enctype=multipart/form-data frameborder="0">
+    <p><input type=file name=file style="background-color:#fff;">
+       <input type=submit value=Upload class="btn btn-primary">
 </form>
+</div>
 {% endblock %}

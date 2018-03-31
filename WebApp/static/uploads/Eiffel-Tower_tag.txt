@@ -1,0 +1,14 @@
+#viaduct
+#seashore
+#coast
+#seacoast
+#sea-coast
+#steel_arch_bridge
+#pier
+#breakwater
+#groin
+#groyne
+#mole
+#bulwark
+#seawall
+#jetty

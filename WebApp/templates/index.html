@@ -1,8 +1,51 @@
-<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+<title>거긴안대</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+<style>
+body{
+  color: #000;
+  background-image: url("{{ url_for('static',filename='images/Welcome.png') }}");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+</style>
 {% block body %}
-Welcome, {{ username }}<br>
-<a href="logout">로그아웃</a><br>
-<a href="signout">탈퇴</a><br>
-<a href="newsfeed">뉴스피드</a><br>
-<a href="upload">이미지 업로드</a><br>
+<br>
+<!-- <div style="text-align: center;">
+  <h1>Welcome, {{ username }}</h1>
+</div> -->
+<div id="menu" style="text-align: center;">
+    <h2>
+      <form action="/search" method="POST" class="form-inline my-2 my-lg-0"
+      style="position: absolute; top: 600px; left: 30%;">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="data">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </h2>
+    <h3>
+      <a href="logout" style="color:#fff; font-size: 150%;">
+          <button type="button" class="btn btn-outline-primary btn-lg btn-block"
+          style="position: absolute; top: 800px;">
+              로그아웃
+          </button>
+      </a><br><br>
+      <a href="upload" style="color:#fff; font-size: 150%;">
+          <button type="button" class="btn btn-outline-info btn-lg btn-block"
+          style="position: absolute; top: 1000px;">
+              이미지 업로드
+          </button>
+      </a><br><br>
+      <a href="newsfeed" style="color:#fff; font-size: 150%;">
+          <button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+          style="position: absolute; top: 1200px;">
+              뉴스피드
+          </button><br><br>
+      </a>
+      <a href="signout" style="color:#fff; font-size: 150%;">
+          <button type="button" class="btn btn-outline-success btn-lg btn-block"
+          style="position: absolute; top: 1400px;">
+              탈퇴
+          </button>
+      </a><br><br>
+    </h3>
+</div>
 {% endblock %}

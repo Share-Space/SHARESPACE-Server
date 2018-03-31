@@ -1,0 +1,7 @@
+#radio_telescope
+#radio_reflector
+#alp
+#sandbar
+#sand_bar
+#castle
+#tripod

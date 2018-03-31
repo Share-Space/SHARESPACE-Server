@@ -1,0 +1,8 @@
+#castle
+#church
+#church_building
+#dam
+#dike
+#dyke
+#monastery
+#palace
