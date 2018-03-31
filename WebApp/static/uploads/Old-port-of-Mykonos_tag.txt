@@ -1,0 +1,12 @@
+#breakwater
+#groin
+#groyne
+#mole
+#bulwark
+#seawall
+#jetty
+#lakeside
+#lakeshore
+#volcano
+#castle
+#stone_wall

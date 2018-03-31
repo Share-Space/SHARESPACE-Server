@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+{% block body %}
+  <br><h1 style="text-align: center;">검색 결과</h1><br>
+  {% for index in range(length) %}
+    <a href="{{ url_for('view_back', filename=view[index]) }}">
+      <div class="jumbotron">
+        <h3 class="display-5">{{ title[index] }}</h3><br>
+        <img src="{{ url_for('static', filename=filename[index]) }}"
+        frameborder="0"
+        width="100%"
+        height="300"/>
+      </div>
+    </a>
+  {% endfor %}
+{% endblock %}
