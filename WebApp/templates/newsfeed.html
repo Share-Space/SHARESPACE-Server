@@ -9,7 +9,7 @@ body{
 </style>
 {% block body %}
   <br><h1 style="text-align: center;">뉴스피드</h1><br>
-  {% for index in range(5) %}
+  {% for index in range(length) %}
     <a href="{{ url_for('view_back', filename=view[index]) }}">
       <div class="jumbotron">
         <h3 class="display-5">{{ title[index] }}</h3><br>
