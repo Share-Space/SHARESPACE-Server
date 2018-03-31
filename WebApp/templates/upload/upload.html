@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+{% block body %}
+<form action = "/upload" method = "POST" enctype = "multipart/form-data">
+  <input type = "file" name = "file" />
+  <input type = "submit"/>
+</form>
+{% endblock %}

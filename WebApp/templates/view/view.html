@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+{% block body %}
+<form action="/view-result" method="GET">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Input Filename to view</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="filename" name="filename">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+				<input type="submit" value="View" class="btn btn-primary btn-large btn-block" >
+				<br>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
