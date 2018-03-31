@@ -1,6 +1,0 @@
-#palace
-#fountain
-#castle
-#lakeside
-#lakeshore
-#monastery

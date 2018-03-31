@@ -1,8 +1,0 @@
-#alp
-#castle
-#cliff
-#drop
-#drop-off
-#valley
-#vale
-#cliff_dwelling

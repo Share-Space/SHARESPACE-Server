@@ -1,4 +1,12 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+<style>
+body{
+  color: #000;
+  background-image: url("{{ url_for('static',filename='images/background1.png') }}");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+</style>
 {% block body %}
 <div style="text-align: center;">
 <br><h1>Upload new File</h1>
