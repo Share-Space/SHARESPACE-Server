@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+{% block body %}
+Welcome, {{ username }}<br>
+<a href="logout">로그아웃</a><br>
+<a href="signout">탈퇴</a><br>
+<a href="newsfeed">뉴스피드</a><br>
+<a href="upload">이미지 업로드</a><br>
+{% endblock %}

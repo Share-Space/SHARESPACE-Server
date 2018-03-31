@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap.css') }}" />
+{% block body %}
+<form action="/signup-back" method="POST">
+    <h1>회원가입</h1>
+    <input type="text" class="signup-field" value="" placeholder="사용자명을 입력하세요" name="username"><br>
+    <input type="text" class="signup-field" value="" placeholder="이메일을 입력하세요" name="email"><br>
+    <input type="password" class="signup-field" value="" placeholder="비밀번호를 입력하세요" name="password"><br>
+    <input type="submit" value="회원가입" class="" ><br>
+    <h5>이미 회원이신가요? <a  href="login">로그인</a></h5>
+</form>
+{% endblock %}
