@@ -16,7 +16,7 @@
 - 디자이너 손지민은 **분명 개발자인데 디자인을 더 많이한다.**
 
 ## # What did we make?
-<img src="Screenshots/main.png" alt="Drawing" width="200"/><br>
+<img src="Screenshots/main.png" alt="Drawing" width="540"/><br>
 > - VR 컨텐츠를 누구나 업로드해 공유하고 이용할 수 있는 SNS(소셜 네트워크 서비스), ShareSpace
 
 - ~~대체 [누구](http://github.com/JunhoYeo)의 아이디어이기에 이처럼 기발한지,,허허~^^7<br>
