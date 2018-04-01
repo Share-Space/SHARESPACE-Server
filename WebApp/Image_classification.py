@@ -80,14 +80,12 @@ class NodeLookup(object):
             return ''
         return self.node_lookup[node_id]
 
-
 def create_graph():
-    with tf.gfile.FastGFile(os.path.join(
-            FLAGS.model_dir, 'classify_image_graph_def.pb'), 'rb') as f:
+  with tf.gfile.FastGFile(os.path.join(
+          FLAGS.model_dir, 'classify_image_graph_def.pb'), 'rb') as f:
         graph_def = tf.GraphDef()
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
-
 
 def run_inference_on_image(image):
     if not tf.gfile.Exists(image):

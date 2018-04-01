@@ -1,3 +1,4 @@
+<title>ShareSpace</title>
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
 <style>
 body{
@@ -8,9 +9,9 @@ body{
 }
 </style>
 {% block body %}
-<div class="jumbotron">
-
-  <h4 class="display-5">View Image</h4>
+<div class="jumbotron" style="margin-top: 70px;">
+  <h1 class="display-3"><b>{{ title }}</b></h1>
+  <h4 class="display-5" style="font-size: 200%;">View Image</h4>
   <iframe
       frameborder="0"
       width="100%"
@@ -19,21 +20,21 @@ body{
       src="{{url_for('static', filename=filename)  | replace('%3D', '=') | replace('%26', '&') | replace('%3F', '?')}}">
   </iframe><p><br></p>
 
-  <h4 class="display-5">Article</h4>
-  <p>{{ article }}<br><br></p>
+  <h4 class="display-5" style="font-size: 200%;">Article</h4>
+  <p style="font-size: 180%;">{{ article }}<br><br></p>
 
-  <h4 class="display-5">Tags</h4>
+  <h4 class="display-5" style="font-size: 200%;">Tags</h4>
   <h5>
     {% for tag in tags %}
-      <span class="badge badge-primary">{{ tag }}</span>
+      <span class="badge badge-primary" style="font-size: 150%;">{{ tag }}</span>
     {% endfor %}
   </h5><p><br></p>
 
-  <h4 class="display-5">Writer</h4>
+  <h4 class="display-5" style="font-size: 200%;">Writer</h4>
   {% if loglist=="none"%}
-    <p>아무도 글을 편집하지 않았습니다.</p>
+    <p style="font-size: 150%;">아무도 글을 편집하지 않았습니다.</p>
   {% else %}
-      <p>
+      <p style="font-size: 180%;">
       {% for log in loglist %}
           {{ log }}
       {% endfor %}
@@ -41,10 +42,10 @@ body{
   {% endif %}
   <h5>
       <button type="button" class="btn btn-secondary">
-        <a href="/" style="color: white;">home</a>
+        <a href="/" style="color: white; font-size: 150%;">home</a>
       </button>
       <button type="button" class="btn btn-info">
-        <a href="/write" style="color: white;">Edit</a>
+        <a href="/edit" style="color: white; font-size: 150%;">Edit</a>
       </button>
   </h5>
 </dir>
