@@ -182,7 +182,7 @@ def edit_back():
             f.write(tag + '\n')
         f.close()
         # 파일에 태그 기록
-    logger()
+    logger(globaldata[0], globaldata[1])
     loglist=return_log(globaldata[0], globaldata[1])
     return render_template('view/view-result.html', filename=filename, tags=result, article=text, loglist=loglist)
 
