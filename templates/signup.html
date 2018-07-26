@@ -1,0 +1,35 @@
+<title>ShareSpace</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/login.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
+<style>
+body{
+  color: #000;
+  background-image: url("{{ url_for('static',filename='images/background1.png') }}");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+</style>
+{% block body %}
+<form action="/signup" method="POST"
+style="position: absolute; top: 100px; left : 35%;">
+  <div class="login">
+	<div class="login-screen">
+    <div class="app-title"><h1>회원가입</h1></div>
+    <div class="login-form">
+      <div class="control-group">
+    <input type="text" class="signup-field" style="font-size: 150%;"
+    placeholder="사용자명을 입력하세요" name="username"><br>
+    <input type="text" class="signup-field" style="font-size: 150%;"
+    placeholder="이메일을 입력하세요" name="email"><br>
+    <input type="password" class="signup-field" style="font-size: 150%;"
+    placeholder="비밀번호를 입력하세요" name="password"><br>
+    <input type="submit" value="회원가입"
+    class="btn btn-primary btn-large btn-block" ><br>
+      </div>
+    </div>
+    <h5 style="font-size: 140%;">&nbsp;이미 회원이신가요?<br>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="/">로그인</a></h5>
+  </div>
+  </div>
+</form>
+{% endblock %}
