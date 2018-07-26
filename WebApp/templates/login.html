@@ -1,3 +1,4 @@
+<title>ShareSpace</title>
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/login.css') }}" />
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
 <style>
@@ -12,15 +13,19 @@ body{
 {% if session['logged_in'] %} <!--로그인 되어있는데 요청 발생시-->
     <p>이미 로그인하신 상태입니다!</p> <!--그렇다고 말해줌(근데 이럴 일 따위는 아마 없을 거임)-->
 {% else %}
-<form action="/login" method="POST" style="position: absolute; top: 800px; left : 30%;">
+<form action="/login" method="POST"
+style="margin-left: 40px; position: absolute; top: 800px; left : 30%;">
   <div class="login">
 	<div class="login-screen">
     <div class="app-title"><h1>로그인</h1></div>
     <div class="login-form">
       <div class="control-group">
-    <input type="text" class="login-field" placeholder="사용자명을 입력하세요" name="username"><br>
-    <input type="password" class="login-field" placeholder="비밀번호를 입력하세요" name="password"><br>
-    <input type="submit" value="로그인" class="btn btn-primary btn-large btn-block" >
+    <input type="text" class="login-field" placeholder="사용자명을 입력하세요"
+    name="username" style="font-size: 150%;"><br>
+    <input type="password" class="login-field" placeholder="비밀번호를 입력하세요"
+    name="password" style="font-size: 150%;"><br>
+    <input type="submit" value="로그인" style="font-size: 150%;"
+    class="btn btn-primary btn-large btn-block" >
       </div>
     </div>
     {% with messages = get_flashed_messages() %}
@@ -38,7 +43,8 @@ body{
             {% endfor %}
         {% endif %}
     {% endwith %}
-    <h5>회원이 아닌가요? <a href="signup">회원가입</a></h5> <!--회원가입 링크-->
+    <h5 style="font-size: 140%;">&nbsp;회원이 아닌가요?<br>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="signup">회원가입</a></h5> <!--회원가입 링크-->
   </div>
   </div>
 </form>

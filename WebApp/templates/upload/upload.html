@@ -1,3 +1,4 @@
+<title>ShareSpace</title>
 <link rel="stylesheet" href="{{ url_for('static',filename='styles/bootstrap-minty.css') }}" />
 <style>
 body{
@@ -8,11 +9,11 @@ body{
 }
 </style>
 {% block body %}
-<div style="text-align: center;">
-<br><h1>Upload new File</h1>
-<form method=post enctype=multipart/form-data frameborder="0">
-    <p><input type=file name=file style="background-color:#fff;">
-       <input type=submit value=Upload class="btn btn-primary">
-</form>
+<div style="text-align: center; position: absolute; top: 100px; left: 5%;">
+    <br><h1 style="color: #000;">Upload new File</h1><br>
+    <form method=post enctype=multipart/form-data frameborder="0">
+        <p><input type=file class="btn btn-outline-primary" name="file" style="font-size: 200%;">
+        <input type=submit value=Upload class="btn btn-warning" style="font-size: 200%;">
+    </form>
 </div>
 {% endblock %}
