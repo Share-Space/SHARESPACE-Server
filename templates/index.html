@@ -1,63 +1,49 @@
-<head>
-    <title>ShareSpace</title>
-<style>
-body {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: url("{{ url_for('static', filename='background.jpg') }}") center center no-repeat;
-  background-size: cover;
-}
-</style>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
-</head>
-<div class="bg-img"></div>
-<div class="content">
-    <div class="logo">
-        <img src="{{ url_for('static', filename='logo.png') }}"
-        width="20%" style="max-width:100%; max-height:100%;"/>
-    </div>
-    <div style="text-align: center; font-size: 150%;">
-        <h1 class="welcome" style="margin: 0;">Welcome to ShareSpace, <span style="color: #0f3443; font-size: 150%;">{{username}}</span>!</h1>
-        <p style="margin: 0;">ShareSpace에 오신 것을 환영합니다</p>
-    </div>
-    <div class="buttons">
-        <a class="waves-effect waves-light btn teal darken-4" href="/logout">Logout</a>
-        <a class="waves-effect waves-light btn teal darken-2" href="#">Search</a>
-        <a class="waves-effect waves-light btn teal" href="#">Upload</a>
-    </div>
-    <div class="centered">
-        <section class="cards">
-            <div class="card">
-                <img src="/static/Taj-Mahal.jpg" alt="Image" style="width:100%">
-                <div class="container">
-                    <h4><b>Taj-Mahal</b></h4> 
-                    <p>Lorem ipsum dolor sit amet...</p> 
-                </div>
-            </div>
-            <div class="card">
-                <img src="/static/Bayon-Temple.jpg" alt="Image" style="width:100%">
-                <div class="container">
-                    <h4><b>Bayon-Temple</b></h4> 
-                    <p>Lorem ipsum dolor sit amet...</p> 
-                </div>
-            </div>
-            <div class="card">
-                <img src="/static/Eiffel-Tower.jpg" alt="Image" style="width:100%">
-                <div class="container">
-                    <h4><b>Eiffel-Tower</b></h4> 
-                    <p>Lorem ipsum dolor sit amet...</p> 
-                </div>
-            </div>
-            <div class="card">
-                <img src="/static/Gyeongbokgung.jpg" alt="Image" style="width:100%">
-                <div class="container">
-                    <h4><b>Gyeongbokgung</b></h4> 
-                    <p>Lorem ipsum dolor sit amet...</p> 
-                </div>
-            </div>
-        </section>
-    </div>
+{% extends 'base.html' %}
+
+{% block page_content %}
+<div class="logo">
+    <img src="{{ url_for('static', filename='logo.png') }}"
+    width="20%" style="max-width:100%; max-height:100%;"/>
 </div>
+<div style="text-align: center; font-size: 150%;">
+    <h1 class="welcome" style="margin: 0;">Welcome to ShareSpace, <span style="color: #0f3443; font-size: 150%;">{{username}}</span>!</h1>
+    <p style="margin: 0;">ShareSpace에 오신 것을 환영합니다</p>
+</div>
+<div class="buttons">
+    <a class="waves-effect waves-light btn teal darken-4" href="/logout">Logout</a>
+    <a class="waves-effect waves-light btn teal darken-2" href="#">Search</a>
+    <a class="waves-effect waves-light btn teal" href="#">Upload</a>
+</div>
+<div class="centered">
+    <section class="cards">
+        <div class="card">
+            <img src="/static/Taj-Mahal.jpg" alt="Image" style="width:100%">
+            <div class="container">
+                <h4><b>Taj-Mahal</b></h4> 
+                <p>Lorem ipsum dolor sit amet...</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="/static/Bayon-Temple.jpg" alt="Image" style="width:100%">
+            <div class="container">
+                <h4><b>Bayon-Temple</b></h4> 
+                <p>Lorem ipsum dolor sit amet...</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="/static/Eiffel-Tower.jpg" alt="Image" style="width:100%">
+            <div class="container">
+                <h4><b>Eiffel-Tower</b></h4> 
+                <p>Lorem ipsum dolor sit amet...</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="/static/Gyeongbokgung.jpg" alt="Image" style="width:100%">
+            <div class="container">
+                <h4><b>Gyeongbokgung</b></h4> 
+                <p>Lorem ipsum dolor sit amet...</p> 
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
