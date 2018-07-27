@@ -12,8 +12,12 @@ def home():
 @app.route('/login', methods=['POST'])
 def login():
     if request.method == 'POST':
-        session['username'] = request.form.get('username')
-        session['email'] = request.form.get('email')
+        username = request.form.get('username')
+        email = request.form.get('email')
+        if (not username) or (not email):
+            return render_template('login.html')
+        session['username'] = username
+        session['email'] = email
         session['logged_in'] = True
         return redirect(url_for('home'))
     else:
@@ -22,7 +26,7 @@ def login():
 @app.route('/logout')
 def logout():
     session['logged_in'] = False
-    return home()
+    return redirect(url_for('home'))
 
 @app.errorhandler(404)
 def page_not_found(e): # error handler for 404
