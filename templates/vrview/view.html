@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+<script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+{% endblock %}
+
+{% block page_content %}
+<div id='vrview'></div>
+<script>
+window.addEventListener('load', onVrViewLoad);w
+function onVrViewLoad() {
+  // Selector '#vrview' finds element with id 'vrview'.
+  var vrView = new VRView.Player('#vrview', {
+    image: '{{ image_url }}',
+    is_stereo: false,
+    width: '100%',
+    height: 400
+  });
+}
+var vrFrame = document.getElementById('vrview')
+
+</script>
+{% endblock %}

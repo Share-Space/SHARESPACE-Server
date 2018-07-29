@@ -1,12 +1,21 @@
 <h1 align="center">
+  <a href="https://github.com/404-NOTFOUND">
+    <img src="static/logo.png" width="150"><br>
+  </a>
   SHARESPACE-Server
 </h1>
 <p align="center">
-<img alt="forthebadge made-with-python" src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
-<img alt="ForTheBadge uses-js" src="http://ForTheBadge.com/images/badges/uses-js.svg"/>
-<br>
 SHARESPACE Server & Web app with Python Flask, Google VR view
+<br><br>
+<a href="https://www.python.org/download/releases/3.0/">
+  <img alt="forthebadge made-with-python" src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
+</a>
+<a href="https://github.com/googlevr/vrview">
+  <img alt="ForTheBadge uses-js" src="http://ForTheBadge.com/images/badges/uses-js.svg"/>
+</a>
 </p>
+
+----------
 
 ## Server (REST API with Flask-RESTful)
 

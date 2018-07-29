@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, request, flash, session, abort, url_for
+from flask import Flask, render_template, redirect, request, session, url_for
+from main import main as main_blueprint
 import os
 app = Flask(__name__)
+app.register_blueprint(main_blueprint) # main_blueprint in main.py
 
 @app.route('/')
 def home():
@@ -34,4 +36,4 @@ def page_not_found(e): # error handler for 404
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12) # generate random key
-    app.run(debug = True, host='0.0.0.0', port=5000)
+    app.run(debug = True, host='0.0.0.0', port=5000) # run server

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+    {% block head_content %}{% endblock %}
 </head>
 <body>
     <div class="bg-img"></div>
