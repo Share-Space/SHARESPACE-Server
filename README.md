@@ -1,5 +1,12 @@
-# SHARESPACE-Server
-SHARESPACE Server & Web app with Python Flask
+<h1 align="center">
+  SHARESPACE-Server
+</h1>
+<p align="center">
+<img alt="forthebadge made-with-python" src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
+<img alt="ForTheBadge uses-js" src="http://ForTheBadge.com/images/badges/uses-js.svg"/>
+<br>
+SHARESPACE Server & Web app with Python Flask, Google VR view
+</p>
 
 ## Server (REST API with Flask-RESTful)
 
