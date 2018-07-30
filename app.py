@@ -10,6 +10,8 @@ from flask import (
 from main import main as main_blueprint
 import os
 app = Flask(__name__)
+UPLOAD_FOLDER = './static/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.register_blueprint(main_blueprint) # main_blueprint in main.py
 
 @app.route('/')
