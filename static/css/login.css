@@ -1,0 +1,38 @@
+.input-field>label {
+    font-size: 120%;
+    color: #FFFFFF;
+}
+::placeholder { 
+    font-size: 120%;
+    color: #000000;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    font-size: 120%;
+    color: #000000;
+}
+
+::-ms-input-placeholder { 
+    font-size: 120%;
+    color: #000000;
+}
+.start-sharespace {
+    margin: 0; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    font-family: 'Lobster', cursive;
+}
+.login-form {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.login-form form {
+    width: 60%;
+}
+.login-form .submit-btn {
+    color: #000000;
+    width: 100%;
+    background: linear-gradient(to right, #74EBD5, #ACB6E5); 
+}
