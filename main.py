@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect
+from flask import Blueprint, session, request, render_template, redirect
 import os, base64
 from werkzeug import secure_filename
 from flask import current_app as app
@@ -10,13 +10,12 @@ ALLOWED_EXTENSIONS = set(['.jpg', '.jpeg'])
 def get_img_url(filename):
     return request.url_root + 'static/uploads/' + os.path.basename(filename)
 
-def get_url(filename):
-    img_url = get_img_url(filename)
-    return [
-        img_url, 
-        '/view/' + base64.b64encode(bytes(img_url, 'UTF-8')).decode()
-    ]
+def get_img_id(filename):
+    return base64.b64encode(bytes(get_img_url(filename), 'UTF-8')).decode()
 
+def get_url(filename):
+    return [get_img_url(filename), '/view/' + get_img_id(filename)]
+ 
 def allowed_file(filename):
     return os.path.splitext(filename)[1] in ALLOWED_EXTENSIONS
 
@@ -25,6 +24,8 @@ def random_images(number):
 
 @main.route('/view/<image_id>') # 현재는 그냥 파일명만 받게 됨
 def view(image_id):
+    if not session.get('logged_in'):
+        return render_template('login.html')
     image_path = base64.b64decode(image_id).decode()
     image_name = os.path.basename(image_path)
     # for testing
@@ -44,6 +45,8 @@ def view(image_id):
 
 @main.route('/upload', methods=['GET', 'POST'])
 def upload():
+    if not session.get('logged_in'):
+        return render_template('login.html')
     if request.method == 'POST':
         if 'file' not in request.files: # no file part in POST request
             return redirect(request.url)
@@ -53,10 +56,11 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            image_id = base64.b64encode(bytes(filename, 'UTF_8')).decode()
-            return redirect('/view/' + image_id)
+            return redirect('/view/' + get_img_id(filename))
     return render_template('vrview/upload.html')
 
 @main.route('/search')
 def search():
+    if not session.get('logged_in'):
+        return render_template('login.html')
     return 'unavailable at the moment'
