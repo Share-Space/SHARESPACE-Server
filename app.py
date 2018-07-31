@@ -8,6 +8,7 @@ from flask import (
     send_from_directory
 )
 from main import main as main_blueprint
+from main import random_images
 import os
 app = Flask(__name__)
 UPLOAD_FOLDER = './static/uploads'
@@ -19,7 +20,10 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else: # if logged in
-        return render_template('index.html', username=session.get('username'))
+        return render_template('index.html', 
+            username=session.get('username'),
+            newsfeed=random_images(4)
+        )
 
 @app.route('/login', methods=['POST'])
 def login():

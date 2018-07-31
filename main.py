@@ -1,18 +1,32 @@
-from flask import Flask, render_template, redirect, request, url_for, Blueprint
+from flask import Blueprint, request, render_template, redirect
 import os, base64
 from werkzeug import secure_filename
 from flask import current_app as app
-import image_classification
+import os, random, image_classification
 
 main = Blueprint('main', __name__, template_folder='templates/main')
 ALLOWED_EXTENSIONS = set(['.jpg', '.jpeg'])
 
+def get_img_url(filename):
+    return request.url_root + 'static/uploads/' + os.path.basename(filename)
+
+def get_url(filename):
+    img_url = get_img_url(filename)
+    return [
+        img_url, 
+        '/view/' + base64.b64encode(bytes(img_url, 'UTF-8')).decode()
+    ]
+
 def allowed_file(filename):
     return os.path.splitext(filename)[1] in ALLOWED_EXTENSIONS
+
+def random_images(number):
+    return [get_url(name) for name in random.sample(os.listdir('./static/uploads/'), number)]
 
 @main.route('/view/<image_id>') # 현재는 그냥 파일명만 받게 됨
 def view(image_id):
     image_path = base64.b64decode(image_id).decode()
+    image_name = os.path.basename(image_path)
     # for testing
     title = 'Petra'
     article = 'Petra, originally known to its inhabitants as Raqmu, is a historical and archaeological city in southern Jordan.'
@@ -24,7 +38,7 @@ def view(image_id):
         image_url=image_path, # 이미지가 있는 정적 URL 주소
         current_url=request.base_url, # 렌더링된 게시물의 URL (클립보드로 복사해 공유 기능을 제공)
         title=title, article=article, # 게시물 제목 및 본문
-        tags=image_classification.classification(os.path.join(app.config['UPLOAD_FOLDER'], image_path))
+        tags=image_classification.classification(os.path.join(app.config['UPLOAD_FOLDER'], image_name))
         # 이미지 인식 후 반환된 추론 결과(태그)를 템플릿에 전달
     )
 
@@ -39,8 +53,6 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            # 이 부분에서 b64encode()하는 URL을 (외부에서 접속가능한) 정적 URL로 고칠 것
-            # (해당 URL을 Google VR view에서 참조하기 때문)
             image_id = base64.b64encode(bytes(filename, 'UTF_8')).decode()
             return redirect('/view/' + image_id)
     return render_template('vrview/upload.html')

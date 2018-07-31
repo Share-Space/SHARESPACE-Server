@@ -16,34 +16,17 @@
 </div>
 <div class="centered">
     <section class="cards">
-        <div class="card">
-            <img src="/static/Taj-Mahal.jpg" alt="Image" style="width:100%">
-            <div class="container">
-                <h5><b>Taj-Mahal</b></h5> 
-                <p>Lorem ipsum dolor sit amet...</p> 
-            </div>
-        </div>
-        <div class="card">
-            <img src="/static/Bayon-Temple.jpg" alt="Image" style="width:100%">
-            <div class="container">
-                <h5><b>Bayon-Temple</b></h5> 
-                <p>Lorem ipsum dolor sit amet...</p> 
-            </div>
-        </div>
-        <div class="card">
-            <img src="/static/Eiffel-Tower.jpg" alt="Image" style="width:100%">
-            <div class="container">
-                <h5><b>Eiffel-Tower</b></h5> 
-                <p>Lorem ipsum dolor sit amet...</p> 
-            </div>
-        </div>
-        <div class="card">
-            <img src="/static/Gyeongbokgung.jpg" alt="Image" style="width:100%">
-            <div class="container">
-                <h5><b>Gyeongbokgung</b></h5> 
-                <p>Lorem ipsum dolor sit amet...</p> 
-            </div>
-        </div>
+        {% for image in newsfeed %}
+            <div class="card"><a href="{{ image[1] }}">
+                <!-- post_url -->
+                <img src="{{ image[0] }}" alt="Image" style="width:100%">
+                <!-- image_url -->
+                <div class="container">
+                    <h5><b>Lorem ipsum</b></h5> 
+                    <p>Lorem ipsum dolor sit amet...</p> 
+                </div>
+            </a></div>
+        {% endfor %}
     </section>
 </div>
 {% endblock %}
