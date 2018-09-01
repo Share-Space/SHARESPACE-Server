@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
+.content .logo { display:flex; justify-content:center; align-items:center; }
+.content .welcome { font-family: 'Lobster', cursive; }
+.content .buttons {
+    margin: 8px; display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.content .cards .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+}
+.content .cards .card:hover { box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); }
+.content .cards .container { padding: 0; }
+.cards {
+    display: flex; flex-wrap: wrap; display:flex; 
+    justify-content:center; align-items:center;
+}
+.cards .card { flex: 1 0 500px; box-sizing: border-box; margin: 1rem .25em; }
+@media screen and (min-width: 40em) {
+    .cards .card { max-width: calc(50% -  1em); }
+}
+@media screen and (min-width: 60em) {
+    .cards .card { max-width: calc(25% - 1em); }
+}

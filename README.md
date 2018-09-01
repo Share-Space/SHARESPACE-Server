@@ -33,15 +33,6 @@ SHARESPACE Server & Web app with Python Flask, Google VR view
 
 ## Web app
 
-### session
-사용자 이름과 이메일을 받아 세션에 저장하는 방식으로 세션을 관리한다(세부적인 로그인 구현 생략).
-
-```Python
-session.get('username') # 사용자 이름 (str)
-session.get('email') # 이메일 (str)
-session.get('logged_in') # 로그인 상태 (bool)
-```
-
 ### Google VR view
 Google의 [VR view](https://developers.google.com/vr/develop/web/vrview-web) JavaScript API를 이용해서 360° 포토를 임베딩한다.
 

@@ -1,0 +1,14 @@
+<form action="/login" method="POST">
+    <input type="text" class="login-field" placeholder="이메일을 입력하세요"
+    name="email" style="font-size: 150%;"><br>
+    <input type="password" id="password" class="login-field" placeholder="패스워드를 입력하세요"
+    name="password" style="font-size: 150%;"><br>
+    <input onclick="Submit()" type="submit" name="submit" value="로그인" style="font-size: 150%;">
+</form>
+<script src="./static/js/sha512.js"></script>
+<script>
+function Submit(){
+    var passwordObject = document.getElementById('password');
+    passwordObject.value = sha512_224(passwordObject.value);
+}
+</script>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+<!-- <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script> -->
+<script src="{{ url_for('static', filename='vrview/build/vrview.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/view.css') }}">
+{% endblock %}
+
+{% block page_content %}
+<style>
+body {
+  background: url("{{ url_for('static', filename='background-view.png') }}") center center no-repeat;
+}
+</style>
+<nav>
+  <div class="nav-wrapper z-depth-3" style="height: 70;">
+    <a href="{{ url_for('home') }}" class="brand-logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" height="70" style="text-align: center"/>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="javascript:copy('{{ current_url }}')">Copy Link</a></li>
+      <li><a href="{{ url_for('main.search') }}">Search</a></li>
+      <li><a href="{{ url_for('main.upload') }}">Upload</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="post z-depth-5">
+  <h1>{{ title }}</h1>
+  <div id="vrview"></div>
+  <h2>Article</h2>
+  {% if not article %}
+    <p class="article">none</p>
+  {% else %}
+    <p class="article">{{ article }}</p>
+  {% endif %}
+  <h2>Tags</h2>
+  <div class="tags">
+    {% for tag in tags %}
+      <span class="new badge">
+        {{ tag }}
+      </span>
+    {% endfor %}
+  </div>
+</div>
+<script>
+window.addEventListener('load', onVrViewLoad);
+function onVrViewLoad() {
+  // Selector '#vrview' finds element with id 'vrview'.
+  var vrView = new VRView.Player('#vrview', {
+    image: '{{ image_url }}',
+    is_stereo: false,
+    width: '100%',
+    height: 400
+  });
+  M.toast({html: 'VR view successfully loaded'});
+}
+function copy(text) {
+  var input = document.createElement('input');
+  input.setAttribute('value', text);
+  document.body.appendChild(input);
+  input.select();
+  var result = document.execCommand('copy');
+  document.body.removeChild(input)
+  M.toast({html: 'Link copied to clipboard'});
+  return result;
+}
+</script>
+{% endblock %}

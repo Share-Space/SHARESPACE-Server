@@ -1,0 +1,14 @@
+<h1>SHARESPACE</h1>
+{% if current_user.is_authenticated %}
+    <!-- 활동보고서, 개인정보변경, 모임 -->
+    <ul>
+        <a href="{{ url_for('upload') }}">업로드</a>
+        <a href="{{ url_for('logout') }}">로그아웃</a>
+    </ul>
+{% else %}
+    <!-- 지원서, 로그인 -->
+    <ul>
+        <a href="{{ url_for('login') }}">로그인</a>
+        <a href="{{ url_for('signup') }}">가입하기</a>
+    </ul>
+{% endif %}
