@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/404-NOTFOUND">
-    <img src="static/logo.png" width="150"><br>
+    <img src="./sharespace/static/logo.png" width="150"><br>
   </a>
   SHARESPACE-Server
 </h1>
