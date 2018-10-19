@@ -15,6 +15,8 @@ SHARESPACE Server & Web app with Python Flask, Google VR view
 </a>
 </p>
 
+> 해커톤 당시 만들었던 결과물은 `hackathon` 브랜치에 있습니다 :)
+
 ----------
 
 ## Server (REST API with Flask-RESTful)
